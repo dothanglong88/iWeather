@@ -35,20 +35,18 @@
 }
 
 - (IBAction)convertWeather:(id)sender {
-    NSString* oldtemp = [(UIButton *)sender currentTitle];
-    NSLog(@"oldtemp %@", oldtemp);
-    float foldtemp = [oldtemp floatValue];
+//    NSString* oldtemp = [(UIButton *)sender currentTitle];
+//    NSLog(@"oldtemp %@", oldtemp);
+//    float foldtemp = [oldtemp floatValue];
     NSString* str = _convertCF.text;
     if ([str compare:@"C"]==NSOrderedSame){
         _convertCF.text = @"F";
-        foldtemp = (9/(float)5) * foldtemp + 32;
-        NSLog(@"newtempF %2.1f", foldtemp);
+        fTemperature = (9/(float)5) * fTemperature + 32;
     }else{
         _convertCF.text = @"C";
-        foldtemp = (5/(float)9) * (foldtemp - 32);
-        NSLog(@"newtempC %2.1f", foldtemp);
+        fTemperature = (5/(float)9) * (fTemperature - 32);
     }
-    NSString* s = [NSString stringWithFormat:@"%2.1f", foldtemp];
+    NSString* s = [NSString stringWithFormat:@"%2.1f", fTemperature];
     [_temperature setTitle:s forState:UIControlStateNormal];
 }
 
